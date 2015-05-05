@@ -87,4 +87,16 @@
 		<bean id="tongYongMapper" parent="baseBean">
 		<property name="mapperInterface" value="com.smartcommunity.mapper.TongYongMapper"></property>
 	</bean>
+			<bean id="modulesMapper" parent="baseBean">
+		<property name="mapperInterface" value="com.smartcommunity.mapper.ModulesMapper"></property>
+	</bean>	
+		<bean id="operationsMapper" parent="baseBean">
+		<property name="mapperInterface" value="com.smartcommunity.mapper.OperationsMapper"></property>
+	</bean>
+			<bean id="roleMapper" parent="baseBean">
+		<property name="mapperInterface" value="com.smartcommunity.mapper.RoleMapper"></property>
+	</bean>
+				<bean id="roleModuleOperationMapper" parent="baseBean">
+		<property name="mapperInterface" value="com.smartcommunity.mapper.RoleModuleOperationMapper"></property>
+	</bean>
 </beans>  

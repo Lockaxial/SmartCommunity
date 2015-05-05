@@ -72,4 +72,9 @@
 		<bean id="androidUpdateAction" class="com.smartcommunity.action.AndroidUpdateAction"
 		scope="prototype">
 		</bean>
+				<bean id="authorityAction" class="com.smartcommunity.action.AuthorityAction"
+		scope="prototype">
+		
+		<property name="authorityService" ref="authorityService"></property>
+		</bean>
 </beans>  

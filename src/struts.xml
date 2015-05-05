@@ -64,7 +64,7 @@
 
 			<interceptor name="propertyInterceptor"
 				class="com.smartcommunity.interceptor.PropertyInterceptor" />
-				<!-- 显示参数与参数值 -->
+			<!-- 显示参数与参数值 -->
 			<interceptor name="displayParameters"
 				class="com.smartcommunity.interceptor.DisplayParameters" />
 			<interceptor name="exceptionInterceptor"
@@ -168,8 +168,9 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-				<!-- 通过关键字查询公告 -->
-		<action name="listNoticeByKeyWords" class="noticeAction" method="listNoticeByKeyWords">
+		<!-- 通过关键字查询公告 -->
+		<action name="listNoticeByKeyWords" class="noticeAction"
+			method="listNoticeByKeyWords">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -264,7 +265,7 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-			<!-- 查询余额 -->
+		<!-- 查询余额 -->
 		<action name="getAccount" class="meterAction" method="getAccount">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
@@ -322,7 +323,7 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		
+
 		<!-- 提交房屋信息 -->
 		<action name="submitRoomInfo" class="buildingAction" method="submitRoomInfo">
 			<result name="success" type="stream">
@@ -344,24 +345,23 @@
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-		</action>		
-				<!-- 根据房间条件查询房间信息 -->
+		</action>
+		<!-- 根据房间条件查询房间信息 -->
 		<action name="listRoomInfoByCondition" class="buildingAction"
 			method="listRoomInfoByCondition">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-		</action>	
+		</action>
 		<!-- 删除房间信息 -->
-		<action name="deleteRoomInfo" class="buildingAction"
-			method="deleteRoomInfo">
+		<action name="deleteRoomInfo" class="buildingAction" method="deleteRoomInfo">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		
+
 		<!-- 查询楼宇编号与名称 -->
 		<action name="listBuildingNumber" class="buildingAction"
 			method="listBuildingNumber">
@@ -377,7 +377,7 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-				<!-- 查询房间号 -->
+		<!-- 查询房间号 -->
 		<action name="listRoomNumber" class="buildingAction" method="listRoomNumber">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
@@ -404,13 +404,14 @@
 			</result>
 		</action>
 		<!-- 删除投诉信息 -->
-		<action name="cancelComplaints" class="complaintsAction" method="cancelComplaints">
+		<action name="cancelComplaints" class="complaintsAction"
+			method="cancelComplaints">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-				<!-- 提交投诉反馈 -->
+		<!-- 提交投诉反馈 -->
 		<action name="submitFeedback" class="complaintsAction" method="submitFeedback">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
@@ -438,17 +439,15 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-				<!-- 查询业主信息 -->
-		<action name="list" class="userManageAction"
-			method="listRoomownerInfo">
+		<!-- 查询业主信息 -->
+		<action name="list" class="userManageAction" method="listRoomownerInfo">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
 		<!-- 删除业主信息 -->
-		<action name="delete" class="userManageAction"
-			method="deleteRoomowner">
+		<action name="delete" class="userManageAction" method="deleteRoomowner">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -461,14 +460,14 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		<!-- 登出  -->
+		<!-- 登出 -->
 		<action name="logout" class="userManageAction" method="logout">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-	
+
 		<!-- 添加物业人员登陆密码与姓名 -->
 		<action name="addManager" class="userManageAction" method="addManager">
 			<result name="success" type="stream">
@@ -476,15 +475,15 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-			<!-- 查询电话号 -->
+		<!-- 查询电话号 -->
 		<action name="getTelephone" class="userManageAction" method="getTelephone">
 			<result name="success" type="stream">
 				<param name="contentTyxpe">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		
-				<action name="getUserDetails" class="userManageAction" method="getUserDetails">
+
+		<action name="getUserDetails" class="userManageAction" method="getUserDetails">
 			<result name="success" type="stream">
 				<param name="contentTyxpe">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -492,10 +491,10 @@
 		</action>
 
 	</package>
-	
+
 	<!-- 装修信息管理 -->
 	<package name="decorate" namespace="/decorate" extends="struts-default">
-	<result-types>
+		<result-types>
 			<result-type name="multistream"
 				class="com.smartcommunity.util.MultiStreamResult"></result-type>
 		</result-types>
@@ -532,16 +531,16 @@
 
 	</package>
 	<package name="android" namespace="/android" extends="struts-default">
-			<result-types>
+		<result-types>
 			<result-type name="multistream"
 				class="com.smartcommunity.util.MultiStreamResult"></result-type>
 		</result-types>
-			<action name="update" class="androidUpdateAction" method="checkUpdate">
+		<action name="update" class="androidUpdateAction" method="checkUpdate">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-		</action>		
+		</action>
 		<!-- 获取当前版本与特性 -->
 		<action name="getVersion" class="androidUpdateAction" method="getLatestVersion">
 			<result name="success" type="stream">
@@ -549,8 +548,8 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-			<!-- 下载最新版本 -->
-	<action name="download" class="androidUpdateAction" method="download">
+		<!-- 下载最新版本 -->
+		<action name="download" class="androidUpdateAction" method="download">
 			<result name="success" type="multistream">
 				<param name="contentType">${contentType}</param>
 				<param name="inputName">inputStream</param>
@@ -559,6 +558,71 @@
 				<param name="contentLength">${contentLength}</param>
 			</result>
 		</action>
-		
+
+	</package>
+	<package name="authority" namespace="/authority" extends="struts-default">
+		<!-- 获取模块 -->
+		<action name="getModules" class="authorityAction" method="getModules">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="getOperations" class="authorityAction" method="getOperations">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="getModulesAndOperations" class="authorityAction"
+			method="getModulesAndOperations">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="addModules" class="authorityAction" method="addModules">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="deleteModule" class="authorityAction" method="deleteModule">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="updateModule" class="authorityAction" method="updateModule">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="deleteOperation" class="authorityAction" method="deleteOperation">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="updateOperation" class="authorityAction" method="updateOperation">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+				<action name="addRoles" class="authorityAction" method="addRoles">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+					<action name="addAuthority" class="authorityAction" method="addAuthority">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
 	</package>
 </struts>

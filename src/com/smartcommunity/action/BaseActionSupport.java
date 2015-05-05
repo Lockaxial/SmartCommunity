@@ -126,4 +126,13 @@ public class BaseActionSupport<T> extends ActionSupport implements ModelDriven<T
 		}
 		return com.smartcommunity.util.UTIL.roleother;
 	}
+
+	protected String setJSONObject(JSONObject jsonObject) {
+		if (jsonObject == null) {
+			jsonObject = JSONUtil.getJsonObject(false);
+			JSONUtil.putCause(jsonObject, "数据操作失败");
+		}
+		inputStream = InputStreamUtil.getInputStream(jsonObject);
+		return SUCCESS;
+	}
 }

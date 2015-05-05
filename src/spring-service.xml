@@ -65,4 +65,11 @@
 		scope="prototype">
 		<property name="tongYongMapper" ref="tongYongMapper"></property>
 	</bean>
+			<bean id="authorityService" class="com.smartcommunity.service.impl.AuthorityServiceImpl"
+		scope="prototype">
+		<property name="modulesMapper" ref="modulesMapper"></property>		
+		<property name="operationsMapper" ref="operationsMapper"></property>
+		<property name="roleMapper" ref="roleMapper"></property>
+		<property name="roleModuleOperationMapper" ref="roleModuleOperationMapper"></property>
+	</bean>
 </beans>  

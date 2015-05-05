@@ -3,29 +3,35 @@ package com.smartcommunity.cache;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.smartcommunity.mapper.ModulesMapper;
 import com.smartcommunity.mapper.ResourcesMapper;
+import com.smartcommunity.pojo.Modules;
+import com.smartcommunity.pojo.Operations;
 import com.smartcommunity.pojo.Resources;
 
 public class ResourceCache {
 
-	public static java.util.Map<Integer,Set<String>> resourceMap = new java.util.HashMap<Integer, java.util.Set<String>>();
+	public static java.util.Map<Integer,java.util.List<Modules>> resourceMap = new java.util.HashMap<>();
 	public static boolean isPermit(java.util.Set<Integer> roles,String url) {
-		if (resourceMap == null) {
-			resourceMap = new java.util.HashMap<Integer, java.util.Set<String>>();
-		}
+	
 		for (Integer roleid : roles) {
-			Set<String> set = resourceMap.get(roleid);
-			if (set == null) {
+			java.util.List<Modules> modules = resourceMap.get(roleid);
+			if (modules == null) {
 				getResourceMap(roleid);
 			}			
-			if (  set.contains(url) )
-					return true;
-			int index = url.indexOf(".action");
-			if (index != -1 && set.contains(url.substring(0,index))) {
-					return true;
+			modules = resourceMap.get(roleid);
+			for (Modules module : modules) {
+				java.util.List<Operations> operations = module.getOperations();
+				if (operations == null)
+						continue;
+				for (Operations operation : operations) {
+					if (operation.getAddress().equals(url) || (operation.getAddress() + ".action").equals(url)) {
+						return true;
+					}
 				}
+			}
 		}
-		return false;
+			return false;
 	}
 
 	/**
@@ -36,15 +42,15 @@ public class ResourceCache {
 			return ;
 		}
 		org.springframework.context.ApplicationContext applicationContext = com.smartcommunity.listener.ApplicationListener.getApplicationContext();
-		ResourcesMapper resourcesMapper = (ResourcesMapper) applicationContext.getBean("resourcesMapper");
-		java.util.List<com.smartcommunity.pojo.Resources> resources = resourcesMapper.selectByRoleId(roleid);
+		ModulesMapper modulesMapper = (ModulesMapper) applicationContext.getBean("modulesMapper");
+		java.util.List<Modules> modules = modulesMapper.getModulesAndOperationsByRoleId(1);
 
-		java.util.Set<String> urlSet = new HashSet<String>();
-		for (Resources resource : resources) {
-
-			urlSet.add(resource.getUrl());
-		}
-		resourceMap.put(roleid, urlSet);
+//		java.util.Set<String> urlSet = new HashSet<String>();
+//		for (Resources resource : resources) {
+//
+//			urlSet.add(resource.getUrl());
+//		}
+		resourceMap.put(roleid, modules);
 		System.out.println("cache" + resourceMap.get(roleid));
 	}
 }

@@ -21,6 +21,16 @@ public class JSONUtil {
 		jsonObject.put(successString, flag.booleanValue());
 		return jsonObject;
 	}
+	/**
+	 * 获取出错时返回的 json 对象
+	 * @param type 错误的说明
+	 * @return
+	 */
+	public static JSONObject getFalseJsonObject(String type) {
+		JSONObject jsonObject = getJsonObject(false);
+
+		return JSONUtil.putCause(jsonObject, type);
+	}
 	public static JSONObject putAccountRemain(JSONObject jsonObject, float remain) {
 		if (jsonObject == null) {
 			jsonObject = new JSONObject();
