@@ -53,12 +53,11 @@ public class CookieInterceptor extends AbstractInterceptor {
 		}
 		
 		/** 会话有效则判断其是否有权限访问此 action */
-//		Set<Integer> resourceSet = (Set<Integer>) request.getSession().getAttribute(UTIL.sessionRoles);
-
+		Set<Integer> resourceSet = (Set<Integer>) request.getSession().getAttribute(UTIL.sessionRoles);
 //		if (ResourceCache.isPermit(resourceSet, servletPath))
 			return arg0.invoke();
 
-	//	return PERMISION;
+//		return UTIL.RESULT_PERMISION;
 	}
 
 }

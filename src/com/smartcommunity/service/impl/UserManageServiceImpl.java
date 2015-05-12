@@ -266,6 +266,7 @@ public class UserManageServiceImpl implements IUserManageService {
 		return jsonObject;
 	}
 
+	/** 添加物业人员 */
 	@Override
 	public JSONObject addManager(String name, String password) {
 		// TODO Auto-generated method stub

@@ -13,7 +13,7 @@ public class ResourceCache {
 
 	public static java.util.Map<Integer,java.util.List<Modules>> resourceMap = new java.util.HashMap<>();
 	public static boolean isPermit(java.util.Set<Integer> roles,String url) {
-	
+
 		for (Integer roleid : roles) {
 			java.util.List<Modules> modules = resourceMap.get(roleid);
 			if (modules == null) {

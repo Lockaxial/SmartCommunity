@@ -560,7 +560,7 @@
 		</action>
 
 	</package>
-	<package name="authority" namespace="/authority" extends="struts-default">
+	<package name="authority" namespace="/authority" extends="base">
 		<!-- 获取模块 -->
 		<action name="getModules" class="authorityAction" method="getModules">
 			<result name="success" type="stream">
